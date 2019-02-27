@@ -1,6 +1,10 @@
 from bs4 import BeautifulSoup
 from operator import attrgetter
 
+'''
+    TODO    argument support --input --output
+'''
+
 nodes = []
 edges = []
 
@@ -18,9 +22,6 @@ with open('nodes', 'r') as nodefile:
             if not prev == None:
                 edges.append([prev, node['ref']])
             prev = node['ref']
-
-min_node = min(nodes, key=lambda x: x[1])
-max_node = max(nodes, key=lambda x: x[1])
 
 output = open('output', 'w')
 output.write("# NODES\n")
